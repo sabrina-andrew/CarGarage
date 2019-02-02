@@ -14,12 +14,14 @@ namespace CarGarage
         {
             Speed = 0;
             GasLevel = 100;
+            CarStarted = false;
         }
 
         public Car(int startGasLevel)
         {
             Speed = 0;
             GasLevel = startGasLevel;
+            CarStarted = false;
         }
 
         public void Accelerate()
@@ -33,10 +35,19 @@ namespace CarGarage
             GasLevel = 100;
         }
 
-        public void shouldSlowDown()
+        public void Brake()
         {
+            Speed -= 10;
 
+            if (Speed < 0)
+            {
+                Speed = 0;
+            }
         }
 
+        public void ToggleEngine()
+        {
+            CarStarted = !CarStarted;
+        }
     }
 }

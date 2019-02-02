@@ -10,8 +10,13 @@ namespace CarGarage.Tests
         {
             // Tests AddCar() method
             // Arrange
+            var xxx = new Garage();
+
             // Act
+            xxx.AddCar();
+
             // Assert
+            Assert.NotEmpty(xxx.TheGarage);
         }
 
         [Fact]
