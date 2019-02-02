@@ -9,15 +9,41 @@ namespace CarGarage
         public int Speed { get; private set; }
         public int GasLevel { get; private set; }
         public bool CarStarted { get; private set; }
+        public string CarName { get; private set; }
+        public string Color { get; private set; }
+
+
 
         public Car()
         {
+            //Set Stats
             Speed = 0;
             GasLevel = 100;
             CarStarted = false;
+
+            switch (VehicleInformation)
+            {
+                case "1":
+                    Console.WriteLine("What is the Make and Model of your vehicle?");
+                    CarName = Console.ReadLine();
+                    break;
+                case "2":
+                    Console.WriteLine("What is the color of your vehicle?");
+                    Color = Console.ReadLine();
+                    break;
+                default:
+                    Console.WriteLine("Please follow the instructions.");
+                    break;
+            }
         }
 
-        public Car(int startGasLevel)
+        public void DisplayVehicleInfo()
+        {
+            Console.WriteLine("\nMake and Model: " + CarName);
+            Console.WriteLine("Color: " + Color);
+        }
+           
+            public Car(int startGasLevel)
         {
             Speed = 0;
             GasLevel = startGasLevel;
