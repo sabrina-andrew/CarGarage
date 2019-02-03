@@ -16,7 +16,7 @@ namespace CarGarage
         public void AddCar()
         {
             ListOfCars.Add(new Car());
-            Console.WriteLine("\n" + CarName + " is parked in the garage.");
+           // Console.WriteLine("\n" + CarName + " is parked in the garage.");
             Console.WriteLine("\nPress ANY KEY to continue");
             Console.ReadKey();
         }
@@ -28,31 +28,33 @@ namespace CarGarage
 
         public void FuelAllCars()
         {
-            foreach(Car thisCar in ListOfCars)
+            foreach (Car thisCar in ListOfCars)
             {
                 thisCar.AddFuel();
             }
+        }
 
-            public void DisplayAllVehicleInfo()
+        public void DisplayAllVehicleInfo()
+        {
+            Console.WriteLine("\n\nVehicle Information:");
+
+            int whichCar = CarSelectionMenu();
+            switch (whichCar)
             {
-                Console.WriteLine("\n\nPet Information:");
-
-                int whichPet = PetSelectionMenu();
-                switch (whichPet)
-                {
-                    case -2:
-                        foreach (VirtualPet pet in PetsList)
-                        {
-                            Console.WriteLine("\n" + pet.Name + " Info: ");
-                            pet.DisplayPetInfo();
-                        }
-                        break;
-                    case -1:
-                        Console.WriteLine("\n\nCancelled!");
-                        break;
-                    default:
-                        PetsList[whichPet].DisplayPetInfo();
-                        break;
-                }
+                case -2:
+                    foreach (Car car in ListOfCars)
+                    {
+                        Console.WriteLine("\n" + car.CarName + " Info: ");
+                        car.DisplayVehicleInfo();
+                    }
+                    break;
+                case -1:
+                    Console.WriteLine("\n\nCancelled!");
+                    break;
+                default:
+                    ListOfCars[whichCar].DisplayVehicleInfo();
+                    break;
+            }
+        }
     }
 }

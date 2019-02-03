@@ -37,13 +37,18 @@ namespace CarGarage
             }
         }
 
-        public void DisplayAllVehicleInfo()
+        public void DisplayVehicleInfo()
         {
             Console.WriteLine("\nMake and Model: " + CarName);
             Console.WriteLine("Color: " + Color);
         }
-           
-            public Car(int startGasLevel)
+
+        public void DisplayVehicleStats()
+        {
+            Console.WriteLine("\nGas Level: " + GasLevel);
+        }
+
+        public Car(int startGasLevel)
         {
             Speed = 0;
             GasLevel = startGasLevel;
