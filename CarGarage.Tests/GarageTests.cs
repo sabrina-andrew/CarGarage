@@ -63,7 +63,7 @@ namespace CarGarage.Tests
 
             xxx.TestDrive(new Car);
 
-            Assert.Equal(xxx.TestDrive);
+            Assert.Equal(100, xxx.TestDrive);
         }
 
         [Fact]

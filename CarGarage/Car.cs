@@ -37,7 +37,7 @@ namespace CarGarage
             }
         }
 
-        public void DisplayVehicleInfo()
+        public void DisplayAllVehicleInfo()
         {
             Console.WriteLine("\nMake and Model: " + CarName);
             Console.WriteLine("Color: " + Color);
@@ -54,6 +54,13 @@ namespace CarGarage
         {
             Speed += 10;
             GasLevel -= 10;
+        }
+
+        public void TestDrive()
+        {
+            CarStarted = true;
+            Accelerate();
+
         }
 
         public void AddFuel()
