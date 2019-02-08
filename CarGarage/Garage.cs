@@ -6,6 +6,8 @@ namespace CarGarage
 {
     public class ParkingGarage
     {
+        
+
         public List<Car> ListOfCars { get; set; }
 
         public ParkingGarage()
@@ -13,11 +15,13 @@ namespace CarGarage
             ListOfCars = new List<Car>();
         }
 
-        public void AddCar()
+        public void AddCar(int year, string make, string model)
         {
-            ListOfCars.Add(new Car());
-           // Console.WriteLine("\n" + CarName + " is parked in the garage.");
-            Console.WriteLine("\nPress ANY KEY to continue");
+            Car addedCar = new Car(year, make, model);
+            ListOfCars.Add(addedCar);
+
+            Console.WriteLine(year + make + model + "is parked.");
+            Console.WriteLine("Press enter to continue");
             Console.ReadKey();
         }
 
@@ -31,29 +35,6 @@ namespace CarGarage
             foreach (Car thisCar in ListOfCars)
             {
                 thisCar.AddFuel();
-            }
-        }
-
-        public void DisplayAllVehicleInfo()
-        {
-            Console.WriteLine("\n\nVehicle Information:");
-
-            int whichCar = CarSelectionMenu();
-            switch (whichCar)
-            {
-                case -2:
-                    foreach (Car car in ListOfCars)
-                    {
-                        Console.WriteLine("\n" + car.CarName + " Info: ");
-                        car.DisplayVehicleInfo();
-                    }
-                    break;
-                case -1:
-                    Console.WriteLine("\n\nCancelled!");
-                    break;
-                default:
-                    ListOfCars[whichCar].DisplayVehicleInfo();
-                    break;
             }
         }
     }

@@ -5,62 +5,25 @@ namespace CarGarage
     public class Program
     {
         static void Main(string[] args)
-
         {
-            Console.WriteLine("You have entered the parking garage!\n");
+            ParkingGarage parkingGarage = new ParkingGarage();
 
-                bool run = true;
-
-                var TheGarage = new ParkingGarage();
-
-                do
-                {
-                    run = MainMenu(TheGarage);
-                } while (run);
-            }
-
-        static bool MainMenu(ParkingGarage Garage)
+            MainMenu();
+        }
+        static void MainMenu()
         {
-            Console.Clear();
+            Console.WriteLine("Welcome to the Garage.");
+            Console.WriteLine("Press 1 to park your car");
+            Console.WriteLine("Press 0 to exit");
+            string parkedCar = Console.ReadLine();
 
-            Console.WriteLine("Press 1 to Put Your Car in the Garage.");
-
-            if (Garage.ListOfCars.Count > 0)
-            {
-
-                Console.WriteLine("Press 2 to Display Vehicle Information.");
-                Console.WriteLine("Press 3 to Display Vehicle Stats.");
-                Console.WriteLine("Press 4 to Do Stuff To Your Car.");
-                Console.WriteLine("Press 5 to Leave The Garage.");
-            }
-            Console.WriteLine("Press 0 to Exit");
-
-            ConsoleKeyInfo keyPressed = Console.ReadKey();
-
-            string menuChoice;
-
-            if (char.IsDigit(keyPressed.KeyChar))
-            {
-                menuChoice = keyPressed.KeyChar.ToString();
-            }
-            else
-            {
-                menuChoice = "default";
-            }
-            switch (menuChoice)
-            {
-                case "0":
-                    Console.WriteLine("\nSee you later alligator!");
-                    return false;
-                case "1":
-                    Console.WriteLine("\n\nTell us about your car.");
-                    Garage.AddCar();
-                    break;
-                case "2":
-                    ParkingGarage.DisplayAllVehicleInfo();
-                    break;
-            }
-           return true;
+            if (parkedCar == "1")
+            Console.WriteLine("What is the year of your vehicle?");
+            int userInputYear = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("What is the make of your vehicle?");
+            string userInputMake = Console.ReadLine();
+            Console.WriteLine("What is the model of your vehicle?");
+            string userInputModel = Console.ReadLine();
         }
     }
 }

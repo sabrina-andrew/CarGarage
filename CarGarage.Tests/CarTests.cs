@@ -6,7 +6,7 @@ namespace CarGarage.Tests
     public class CarTests
     {
         [Fact]
-        public void shouldAccelerate()
+        public void ShouldAccelerate()
         {
             // Tests Accelerate() method in Car increases Speed
             // Arrange
@@ -21,7 +21,7 @@ namespace CarGarage.Tests
         }
 
         [Fact]
-        public void shouldConsumeFuel()
+        public void ShouldConsumeFuel()
         {
             // Tests Accelerate() method reduces Fuel amount
             // Arrange
@@ -35,7 +35,7 @@ namespace CarGarage.Tests
         }
 
         [Fact]
-        public void shouldRefuel()
+        public void ShouldRefuel()
         {
             // Tests AddFuel() method increases Fuel amount
             // Arrange
@@ -49,7 +49,7 @@ namespace CarGarage.Tests
         }
 
         [Fact]
-        public void shouldSlowDown()
+        public void ShouldSlowDown()
         {
             // Tests Brake() method in Car reduces Speed amount
             // Arrange
@@ -58,13 +58,14 @@ namespace CarGarage.Tests
             // Act
             car.Accelerate();
             car.Brake();
+            //car.Brake();
 
             // Assert
             Assert.Equal(0, car.Speed);
         }
 
         [Fact]
-        public void shouldStart()
+        public void ShouldStart()
         {
             // Tests ToggleEngine() method starts car when its off
             // Arrange
@@ -78,7 +79,7 @@ namespace CarGarage.Tests
         }
 
         [Fact]
-        public void shouldTurnOff()
+        public void ShouldTurnOff()
         {
             // Tests ToggleEngine() method turns car off when its on
             // Arrange
